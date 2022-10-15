@@ -14,7 +14,7 @@ export default {
         <label className="flex items-center gap-2">
           {Story()}
 
-          <Text size="sm">Lembrar-me de mim por 30 dias</Text>
+          <Text size="sm">Lembrar-me de mim por 40 dias</Text>
         </label>
       )
     }
