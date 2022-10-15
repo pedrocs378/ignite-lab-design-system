@@ -1,13 +1,14 @@
-import { ElementType, HTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
+import { Slot } from '@radix-ui/react-slot';
 import { clsx } from 'clsx';
 
 export type TextProps = HTMLAttributes<HTMLSpanElement> & {
   size?: "sm" | "md" | "lg";
-  as?: ElementType;
+  asChild?: boolean
 };
 
-export function Text({ size = "md", as = "span", ...rest }: TextProps) {
-  const Component = as;
+export function Text({ size = "md", asChild, className, ...rest }: TextProps) {
+  const Component = asChild ? Slot : 'span';
 
   return (
     <Component
@@ -15,7 +16,7 @@ export function Text({ size = "md", as = "span", ...rest }: TextProps) {
         "text-xs": size === "sm",
         "text-sm": size === "md",
         "text-lg": size === "lg",
-      })}
+      }, className)}
       {...rest}
     />
   );

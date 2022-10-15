@@ -6,7 +6,7 @@ export type HeadingProps = HTMLAttributes<HTMLHeadingElement> & {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 };
 
-export function Heading({ size = "md", as = "h2", ...rest }: HeadingProps) {
+export function Heading({ size = "md", as = "h2", className, ...rest }: HeadingProps) {
   const Component = as;
 
   return (
@@ -15,7 +15,7 @@ export function Heading({ size = "md", as = "h2", ...rest }: HeadingProps) {
         "text-lg": size === "sm",
         "text-xl": size === "md",
         "text-2xl": size === "lg",
-      })}
+      }, className)}
       {...rest}
     />
   );
